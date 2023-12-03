@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-export default function Cadastar() {
-    const listaLocalStorage = JSON.parse(localStorage.getItem("Lista"));
-   const [NomeDaMusica, setNomeMusc ] = useState("");
-   const [Letra, setLetra ] = useState("");
-   const [Artista, setCantor] = useState("");
-   const [Link, setLink] = useState("");
-   const [lista, setLista ] = useState(listaLocalStorage || []);
-   const [id,setId] = useState(listaLocalStorage[listaLocalStorage.length - 1]?.id + 1 || 1);
+
+export default function Cadastro() {
+    const listaLocalStorage = JSON.parse(localStorage.getItem("Lista"))|| []
+    const [titulo, setTitulo] = useState("")
+    const [nome, setNomeMusc ] = useState("");
+    const [letra, setLetra ] = useState("");
+    const [artista, setCantor] = useState("");
+    const [descricao, setDescricao] = useState("");
+    const [data, setData] = useState("");
+    const [id,setId] = useState(listaLocalStorage[listaLocalStorage.length - 1]?.id + 1 || 1);
+    const [link, setLink] = useState("");
+    const [lista, setLista ] = useState(listaLocalStorage || []);
 
    useEffect(() => {
     localStorage.setItem("Lista", JSON.stringify(lista));
@@ -16,14 +20,23 @@ export default function Cadastar() {
     const salvar =(e) =>{
         e.preventDefault();
         setLista([...lista, {
-                tipo: tipo, marca:marca, preco:preco, img:img,
-
-                id: id
+                titulo: titulo, 
+                nome: nome, 
+                letra: letra, 
+                artista: artista,
+                descricao: descricao,
+                data: data,
+                id: id,
+                link: link
         }]);
-        setId(id + 1);
-        setTipo("");
-        setMarca("");
-        setPreco("");
-        setImg("");
+
+        setTitulo(id + 1);
+        setNomeMusc("");
+        setLetra("");
+        setCantor("");
+        setDescricao("");
+        setData("");
+        setId("");
+        setLink("");
         console.log(id)
     }}
