@@ -1,4 +1,4 @@
-import Header from './componentes/header';
+import Header from '../Componentes/Header';
 import { useState } from "react";
 export default function Home(){
     return(
