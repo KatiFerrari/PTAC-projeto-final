@@ -74,6 +74,8 @@ export default function Cadastro() {
               <h2 class="text">Link</h2>
                   <input value={link}
                       onChange={(e) => setLink(e.target.value)} />
+                     <button>ADD</button>
+                     
                        </form>       
 
     </div>
